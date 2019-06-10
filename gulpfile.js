@@ -11,8 +11,8 @@ const
   concat = require('gulp-concat'),
   terser = require('gulp-terser'),
   // paths
-  src = '/src',
-  build = '/build';
+  src = 'src',
+  build = 'build';
 
 // HTML proccesing  
 function html(){
@@ -54,7 +54,7 @@ function js(){
 function watch(done){
   sync.init({
     server: {
-      baseDir: '.' + build
+      baseDir: './' + build
     }
   });
 
@@ -77,7 +77,7 @@ exports.js = js;
 exports.watch = watch;
 
 // Run all tasks
-exports.build = gulp.parallel(exports.html, exsports.css, exsports.js);
+exports.build = gulp.parallel(exports.html, exports.css, exports.js);
 
 // Default task
 exports.default = gulp.series(exports.build, exports.watch);
